@@ -549,4 +549,15 @@ let bind switchfn twoTrackInput =
 
 let (>>=) twoTrackInput switchfn = bind switchfn twoTrackInput                      
                       
-let game = newGame () 
+let game = newGame ()
+
+
+//examples
+
+//let c1 = checkersThatCanCapture (game, Player1)
+//
+//let p1m1 = move c1 (Black, (3, 3), Player1Checker (Normal, Move)) (4,4)
+//
+//let c2 = bind checkersThatCanCapture p1m1
+//
+//let p2m1 = move c2 (Black, (4, 6), Player2Checker (Normal, Move)) (5,5)
