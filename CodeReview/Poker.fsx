@@ -275,3 +275,8 @@ open System
         | Pair hand -> (hand, Pair)
         | _ -> let descCardOrder = hand |> List.sortBy fst
                (descCardOrder.[0..4],HighCard)
+
+//exmaples
+
+calcBesthand [aceOfSpades; queenOfSpades; jackOfSpades; kingOfSpades; tenOfSpades ] |> ignore
+calcBesthand [aceOfSpades; queenOfSpades; jackOfSpades; kingOfHearts; tenOfSpades ] |> ignore
