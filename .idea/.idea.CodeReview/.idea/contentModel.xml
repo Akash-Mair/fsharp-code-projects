@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_CodeReview.1824174386.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="CodeReview" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Checkers.fsx" t="Include" />
+        <e p="CodeReview.fsproj" t="IncludeRecursive" />
+        <e p="Music.fsx" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Poker.fsx" t="Include" />
+        <e p="Program.fs" t="Include" />
+      </e>
+      <e p="CodeReview.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

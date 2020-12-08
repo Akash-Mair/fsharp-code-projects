@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CodeReview", "CodeReview\CodeReview.fsproj", "{5EAA2A00-A56E-4102-BB3F-F6FE8C322CDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EAA2A00-A56E-4102-BB3F-F6FE8C322CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAA2A00-A56E-4102-BB3F-F6FE8C322CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAA2A00-A56E-4102-BB3F-F6FE8C322CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAA2A00-A56E-4102-BB3F-F6FE8C322CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
