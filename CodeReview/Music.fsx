@@ -14,6 +14,7 @@ type Note =
 
 type Interval = Note -> Note
 
+
 type ChordQuality =
     | Major
     | Minor 
@@ -36,7 +37,9 @@ type FourNotes = Triad * Note
 
 type FiveNotes = FourNotes * Note 
 
-type Chord = Triad | FourNotes | FiveNotes 
+type Chord = Triad | FourNotes | FiveNotes
+
+type PentatonicScale = ScaleDegree list -> ScaleDegree list option 
 
 //type RootThirdFifth = (ScaleDegree * ChordQuality) list  -> (Note * Note * Note) list 
 
@@ -179,12 +182,7 @@ let buildRootThirdFifth scaleDegreeWithQuality =
     | Minor -> buildMinorScale note |> rootThirdFifth
     | Diminished -> buildDiminishedScale note |> rootThirdFifth
     
-let map onetrackfn twotrackInput =
-    match twotrackInput with
-    | Some s -> onetrackfn s
 
-let (|>>) twotrackInput onetrackfn =
-    map onetrackfn twotrackInput
 
 let buildChordForScaleDegree scale degreeFromString =
     match degreeFromString with
@@ -195,9 +193,10 @@ let buildChordForScaleDegree scale degreeFromString =
     | "V" -> scale |> getV
     | "VI" -> scale |> getVI
     | "VII" -> scale |> getVII
-    |>> buildRootThirdFifth
-    
-      
+    | _ -> None 
+    |> Option.map buildRootThirdFifth
+
+
 let noteFromString =
     function 
     | "C" -> Some C
@@ -218,13 +217,22 @@ let noteFromString =
 let relativeNaturalMinorScale: RelativeNaturalMinor =
     fun scale ->
         buildScale minorScale (scale.[5] |> value)
+        
+let majorPentatonicScale: PentatonicScale =
+    fun scale ->
+        match scale with
+        | [I tonic; II supertonic; III mediant; IV _; V dominant; VI submediant; VII _; I _] ->
+            Some [I tonic; II supertonic; III mediant; V dominant; VI submediant]
+        | _ -> None
+        
+let minorPentatonicScale: PentatonicScale =
+    fun scale ->
+        match scale with
+        | [I tonic; II _; III mediant; IV subdominant ; V dominant; VI _; VII leadingtone; I _] ->
+            Some [I tonic; III mediant; IV subdominant; V dominant; VII leadingtone]
+        | _ -> None 
 
-[<EntryPoint>]
-let main args =
-    let input = args.[0]
-    let note = input |> noteFromString
-    match note with
-    | Some note -> 
-        printfn "note: %A" note
-    | None -> printf "Note %s not recognized" input
-    0
+let CMajor = C |> buildMajorScale
+let CMajorWithChordQuality = (CMajor, qualityOfMajorScale) ||> List.zip
+let buildChordsFromProgression = buildChordForScaleDegree CMajorWithChordQuality
+["I";"IV";"V"] |> List.map buildChordsFromProgression |> ignore
